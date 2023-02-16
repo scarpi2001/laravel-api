@@ -35,7 +35,16 @@ export default {
           <li>Release year: {{ movie.release_year }}</li>
           <li>Cash out: {{ movie.cash_out }}</li>
           <li>Genre: {{ movie.genre.name }}</li>
-          <li>Tags: {{ movie.tags.name }}</li>
+
+          <ul class="tags">
+            <span>
+              Tags:
+            </span>
+            <li v-for="tag in movie.tags">
+              {{ tag.name }}
+            </li>
+          </ul>
+
         </ul>
       </div>
 
@@ -56,6 +65,23 @@ export default {
     margin: 40px 20px;
     border: 1px solid black;
     border-radius: 15px;
+
+    .tags {
+      display: flex;
+      gap: 5px;
+      margin-top: 10px;
+
+      span {
+        display: flex;
+        align-items: center;
+      }
+
+      li {
+        padding: 1px 3px;
+        border: 1px solid black;
+        border-radius: 10px;
+      }
+    }
   }
 }
 </style>
