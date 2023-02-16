@@ -27,16 +27,35 @@ export default {
 
 
 <template>
-    <div>
-      <ul>
-        <li v-for="movie in this.moviesList">
-          <h1>Movie: {{ movie.name }}</h1>
-        </li>
-      </ul>
-      
+    <div class="container">
+
+      <div v-for="movie in this.moviesList">
+        <h2>Movie: {{ movie.name }}</h2>
+        <ul>
+          <li>Release year: {{ movie.release_year }}</li>
+          <li>Cash out: {{ movie.cash_out }}</li>
+          <li>Genre: {{ movie.genre.name }}</li>
+          <li>Tags: {{ movie.tags.name }}</li>
+        </ul>
+      </div>
+
     </div>
 </template>
 
-<style>
+<style lang="scss">
+@use "./styles/general" as*;
 
+.container {
+  display: flex;
+  flex-wrap: wrap;
+
+  div {
+    padding: 10px;
+    background-color: #fff;
+    width: calc(25% - 40px);
+    margin: 40px 20px;
+    border: 1px solid black;
+    border-radius: 15px;
+  }
+}
 </style>
