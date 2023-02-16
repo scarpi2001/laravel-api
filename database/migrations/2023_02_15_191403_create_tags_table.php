@@ -17,7 +17,7 @@ return new class extends Migration
 
             $table->id();
 
-            $table->string('name', 32);
+            $table->string('name', 32) -> unique();
             $table->text('description') -> nullable();
 
             $table->timestamps();

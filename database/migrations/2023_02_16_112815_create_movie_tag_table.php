@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tag_movie', function (Blueprint $table) {
+        Schema::create('movie_tag', function (Blueprint $table) {
 
             $table->id();
         });
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tag_movie');
+        Schema::dropIfExists('movie_tag');
     }
 };

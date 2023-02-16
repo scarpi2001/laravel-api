@@ -19,7 +19,7 @@ return new class extends Migration
 
             $table->string('name', 64) -> unique();
             $table->year('release_year');
-            $table->integer('cash_out') -> unsigned(); 
+            $table->bigInteger('cash_out') -> unsigned(); 
 
             $table->timestamps();
         });
