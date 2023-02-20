@@ -5,7 +5,9 @@ export default {
 
   data() {
         return {
-            moviesList: [],
+            movies: [],
+            genres: [],
+            tags: [],
         }
   },
   mounted() {
@@ -15,9 +17,18 @@ export default {
 
             const data = res.data;
             const success = data.success;
-            const movies = data.response;
 
-            this.moviesList = movies;
+            const movies = data.response.movies;
+            const genres = data.response.genres;
+            const tags = data.response.tags;
+
+            if (success) {
+  
+              this.movies = movies;
+              this.genres = genres;
+              this.tags = tags;
+            }
+
          })
          .catch(err => console.error(err));
   }
@@ -29,7 +40,7 @@ export default {
 <template>
     <div class="container">
 
-      <div v-for="movie in this.moviesList">
+      <div v-for="movie in this.movies">
         <h2>Movie: {{ movie.name }}</h2>
         <ul>
           <li>Release year: {{ movie.release_year }}</li>
@@ -61,7 +72,7 @@ export default {
   div {
     padding: 10px;
     background-color: #fff;
-    width: calc(25% - 40px);
+    width: calc(100% / 3 - 40px);
     margin: 40px 20px;
     border: 1px solid black;
     border-radius: 15px;
