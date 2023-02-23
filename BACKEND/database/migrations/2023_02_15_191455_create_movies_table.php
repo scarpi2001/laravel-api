@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('movies', function (Blueprint $table) {
 
-             $table->id();
+            $table->id();
 
             $table->string('name', 64) -> unique();
             $table->year('release_year');
